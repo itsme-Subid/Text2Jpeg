@@ -92,15 +92,15 @@ header .text-wrapper {
   border: none;
   outline: none;
   resize: none;
-  background: transparent;
+  background: var(--dark-color);
   font-size: 1.25rem;
   color: inherit;
-  font-family: "Montserrat", sans-serif;
   caret-color: rgb(var(--light-color));
 }
 
 .light .text textarea {
   caret-color: rgb(var(--dark-color));
+  background: var(--light-color);
 }
 
 .text span {

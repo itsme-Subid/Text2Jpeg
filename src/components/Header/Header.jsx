@@ -6,6 +6,8 @@ function Header({ text, setText }) {
     let body = document.body;
     body.classList.toggle("light");
   };
+  let spanStyle =
+    text !== "" ? { transform: "translateY(0)", scale: "1", opacity: "1" } : {};
   return (
     <header>
       <div className="wrapper">
@@ -29,7 +31,7 @@ function Header({ text, setText }) {
                   setText(event.target.value);
                 }}
               ></textarea>
-              <span>Text</span>
+              <span style={spanStyle}>Text</span>
             </label>
           </div>
         </div>
