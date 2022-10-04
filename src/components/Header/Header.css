@@ -33,7 +33,7 @@ header > div > h1 {
   width: 2.5rem;
   height: 2.5rem;
   padding: 0.25rem;
-  z-index: 1000;
+  z-index: 1;
   border-radius: 50%;
   transition: all 0.15s ease;
 }
