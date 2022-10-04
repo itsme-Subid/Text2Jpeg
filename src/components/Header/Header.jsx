@@ -8,21 +8,30 @@ function Header({ text, setText }) {
   };
   return (
     <header>
-      <div>
-        <h1>Text2Jpeg</h1>
-        <div className="text">
-          <label>
-            <textarea className=""></textarea>
-            <span className="">Text</span>
-          </label>
+      <div className="wrapper">
+        <div className="heading">
+          <h1>Text2Jpeg</h1>
+          <div
+            className="modeToggler"
+            onClick={() => {
+              changeMode();
+            }}
+          >
+            <div className="svg"></div>
+          </div>
         </div>
-        <div
-          className="modeToggler"
-          onClick={() => {
-            changeMode();
-          }}
-        >
-          <div className="svg"></div>
+        <div className="text-wrapper">
+          <div className="text">
+            <label>
+              <textarea
+                value={text}
+                onChange={(event) => {
+                  setText(event.target.value);
+                }}
+              ></textarea>
+              <span>Text</span>
+            </label>
+          </div>
         </div>
       </div>
     </header>

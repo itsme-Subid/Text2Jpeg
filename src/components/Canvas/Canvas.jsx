@@ -1,9 +1,18 @@
-import React from 'react'
+import "./Canvas.css";
+import React from "react";
 
-function Canvas() {
+function Canvas({ text }) {
   return (
-    <div>Canvas</div>
-  )
+    <div className="canvas">
+      <div className="canvas__container">
+        <div className="canvas__container__item">
+          <div className="canvas__container__item__content">
+            <h1>{text}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Canvas
+export default Canvas;

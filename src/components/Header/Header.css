@@ -5,10 +5,6 @@ header {
   right: 0;
   padding-block: 2rem;
   background: rgb(var(--dark-color));
-  border-bottom: 1px solid rgb(var(--primary-color));
-  box-shadow: 0 10px 20px rgba(var(--primary-color), 0.1),
-    0 6px 6px rgba(var(--primary-color), 0.1),
-    0 0 0 1px rgba(var(--primary-color), 0.1);
   transition: all 0.15s ease;
 }
 
@@ -17,11 +13,15 @@ header {
 }
 
 header > div {
-  display: flex;
-  justify-content: space-between;
   user-select: none;
   margin-inline: auto;
   width: min(90%, 70.5rem);
+}
+
+header > .wrapper > .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header > div > h1 {
@@ -64,16 +64,25 @@ header > div > h1 {
   filter: invert(0.2);
 }
 
+header .text-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+  top: 2rem;
+  left: 4.25rem;
+}
+
 .text {
+  position: relative;
   border-radius: 0.5rem;
   border: 1px solid rgb(var(--primary-color));
-  position: relative;
   padding: 1.25rem calc(0.75rem + 0.5rem);
-  min-width: 40rem;
+  width: min(100%, 30rem);
   min-height: 5rem;
   box-shadow: 0 10px 20px rgba(var(--primary-color), 0.1),
-  0 6px 6px rgba(var(--primary-color), 0.1),
-  0 0 0 1px rgba(var(--primary-color), 0.1);
+    0 6px 6px rgba(var(--primary-color), 0.1),
+    0 0 0 1px rgba(var(--primary-color), 0.1);
 }
 
 .text textarea {
@@ -159,4 +168,31 @@ header > div > h1 {
 .light .modeToggler .svg {
   background: rgb(var(--dark-color));
   mask: url(../../assets/sun.svg) no-repeat center;
+}
+
+@media screen and (max-width: 768px) {
+  header > .wrapper {
+    flex-direction: column;
+  }
+  header .wrapper > .heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  header > div > h1 {
+    margin-block: 0.5rem;
+  }
+
+  header .text-wrapper {
+    position: static;
+    padding-block: 1rem;
+  }
+  .modeToggler {
+    margin-block: 0.5rem;
+  }
+
+  .text {
+    min-width: 100%;
+  }
 }

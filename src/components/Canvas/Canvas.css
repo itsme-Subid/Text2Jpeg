@@ -1,0 +1,9 @@
+.canvas {
+  padding-top: 13rem;
+}
+
+@media screen and (min-width: 768px) {
+  .canvas {
+    padding-top: 8rem;
+  }
+}
