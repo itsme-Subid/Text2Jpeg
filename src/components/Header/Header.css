@@ -1,0 +1,162 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-block: 2rem;
+  background: rgb(var(--dark-color));
+  border-bottom: 1px solid rgb(var(--primary-color));
+  box-shadow: 0 10px 20px rgba(var(--primary-color), 0.1),
+    0 6px 6px rgba(var(--primary-color), 0.1),
+    0 0 0 1px rgba(var(--primary-color), 0.1);
+  transition: all 0.15s ease;
+}
+
+.light header {
+  background: rgb(var(--light-color));
+}
+
+header > div {
+  display: flex;
+  justify-content: space-between;
+  user-select: none;
+  margin-inline: auto;
+  width: min(90%, 70.5rem);
+}
+
+header > div > h1 {
+  color: rgb(var(--primary-color));
+  text-shadow: 0 0 20px rgba(var(--primary-color), 0.5);
+}
+
+.modeToggler {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: all 0.15s ease;
+}
+
+.light .modeToggler:hover {
+  backdrop-filter: brightness(0.9);
+}
+
+.modeToggler:hover {
+  backdrop-filter: invert(0.1);
+}
+
+.modeToggler .svg {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background: rgb(var(--light-color));
+  mask: url(../../assets/moon.svg) no-repeat center;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.modeToggler .svg:hover {
+  filter: brightness(0.8);
+}
+
+.light .modeToggler .svg:hover {
+  filter: invert(0.2);
+}
+
+.text {
+  border-radius: 0.5rem;
+  border: 1px solid rgb(var(--primary-color));
+  position: relative;
+  padding: 1.25rem calc(0.75rem + 0.5rem);
+  min-width: 40rem;
+  min-height: 5rem;
+  box-shadow: 0 10px 20px rgba(var(--primary-color), 0.1),
+  0 6px 6px rgba(var(--primary-color), 0.1),
+  0 0 0 1px rgba(var(--primary-color), 0.1);
+}
+
+.text textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-size: 1.25rem;
+  color: inherit;
+  font-family: "Montserrat", sans-serif;
+  caret-color: rgb(var(--light-color));
+}
+
+.light .text textarea {
+  caret-color: rgb(var(--dark-color));
+}
+
+.text span {
+  position: absolute;
+  background-color: rgb(var(--dark-color));
+  font-size: 1rem;
+  color: rgb(var(--primary-color));
+  padding-inline: 0.5rem;
+  top: -0.75rem;
+  left: 0.75rem;
+  border-radius: 0.25rem;
+  transform: translateY(1.85rem);
+  scale: 1.5;
+  transition: all 0.15s ease;
+}
+
+.light .text span {
+  background-color: rgb(var(--light-color));
+}
+
+.text span::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0.5rem solid transparent;
+  border-bottom-color: rgb(var(--primary-color));
+  top: -1rem;
+  left: 0.5rem;
+  transform: translateY(1.85rem);
+  opacity: 0;
+  transition: all 0.15s ease;
+}
+
+.text textarea:focus + span {
+  transform: translateY(0);
+  scale: 1;
+  opacity: 1;
+}
+
+.text textarea:focus + span::before {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media screen {
+  ::-webkit-scrollbar {
+    width: 0.25em;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 0.45em;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--primary-color));
+    border-radius: 0.5rem;
+  }
+
+  .light ::-webkit-scrollbar-thumb {
+    background: rgb(var(--dark-color));
+  }
+}
+
+.light .modeToggler .svg {
+  background: rgb(var(--dark-color));
+  mask: url(../../assets/sun.svg) no-repeat center;
+}
