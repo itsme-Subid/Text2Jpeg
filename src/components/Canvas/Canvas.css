@@ -1,9 +1,35 @@
 .canvas {
   padding-top: 13rem;
+  display: grid;
+  place-content: center;
 }
 
 @media screen and (min-width: 768px) {
   .canvas {
     padding-top: 8rem;
   }
+}
+
+.canvas__container {
+  display: grid;
+  place-content: center;
+  margin-block: 2rem;
+  box-shadow: 0 10px 20px rgba(var(--light-color), 0.1),
+    0 6px 6px rgba(var(--light-color), 0.1),
+    0 0 0 1px rgba(var(--light-color), 0.1);
+  border-radius: 1rem;
+  margin-block: 2rem;
+}
+
+.canvas__container__item {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
 }
