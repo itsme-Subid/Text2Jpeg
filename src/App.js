@@ -19,7 +19,7 @@ function App() {
       "font-family: sans-serif; font-weight: 700; color: #1f6feb; padding-block: 2rem; font-size: 2.5rem; text-align: center; text-transform: uppercase; width: 100%;"
     );
   }, []);
-  const [text, setText] = useState("");
+  const [text, setText] = useState("Text2Jpeg");
   return (
     <div className="container">
       <Header text={text} setText={setText} />

@@ -4,12 +4,6 @@
   place-content: center;
 }
 
-@media screen and (min-width: 768px) {
-  .canvas {
-    padding-top: 8rem;
-  }
-}
-
 .canvas__container {
   display: grid;
   place-content: center;
@@ -19,6 +13,8 @@
     0 0 0 1px rgba(var(--light-color), 0.1);
   border-radius: 1rem;
   margin-block: 2rem;
+  width: min(90vw, 400px);
+  height: min(100vh, 400px);
 }
 
 .canvas__container__item {
@@ -29,7 +25,191 @@
   background-position: center center;
 }
 
+.canvas__container__item__content {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .buttons {
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  background-color: rgba(var(--light-color), 1);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(var(--light-color), 0);
+  box-shadow: 0 10px 10px rgba(var(--light-color), 0.1),
+    0 20px 20px rgba(var(--light-color), 0.1),
+    0 30px 30px rgba(var(--light-color), 0.1);
+}
+
+.light .buttons {
+  border: 1px solid rgba(var(--dark-color), 0.8);
+  box-shadow: 0 10px 10px rgba(var(--dark-color), 0.1),
+    0 20px 20px rgba(var(--dark-color), 0.1),
+    0 30px 30px rgba(var(--dark-color), 0.1);
+}
+
+.buttons button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  color: rgba(var(--dark-color), 0.8);
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.buttons button:hover {
+  background-color: rgba(var(--primary-color), 0.1);
+}
+.buttons button:active {
+  background-color: rgba(var(--primary-color), 0.2);
+}
+
+.buttons button > span {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: rgba(var(--dark-color), 0.8);
+}
+
+.buttons .download > span {
+  mask: url(../../assets/download.svg) no-repeat center;
+}
+
+.buttons .card > span {
+  mask: url(../../assets/sun.svg) no-repeat center;
+}
+
+.buttons .gradient > span {
+  border-radius: 50%;
+}
+
+.canvas__container__item {
+  width: min(90vw, 400px);
+  height: min(100vh, 400px);
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .canvas {
+    padding-top: 8rem;
+  }
+  .canvas__container {
+    width: min(100vw, 500px);
+    height: min(100vh, 500px);
+  }
+  .canvas__container__item {
+    width: min(100vw, 500px);
+    height: min(100vh, 500px);
+  }
+}
+
+.canvas__container__item__content {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(var(--light-color), 0.8),
+    rgba(var(--light-color), 0.7)
+  );
+  border-color: rgba(var(--light-color), 0.7);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  color: rgba(var(--dark-color), 1);
+  transition: all 0.15s ease;
+  box-shadow: 0 10px 20px rgba(var(--light-color), 0.1),
+    0 6px 6px rgba(var(--light-color), 0.1),
+    0 0 0 1px rgba(var(--light-color), 0.1);
+}
+
+.canvas__container__item__content.dark {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(var(--dark-color), 0.8),
+    rgba(var(--dark-color), 0.7)
+  );
+  border-color: rgba(var(--dark-color), 0.7);
+  color: rgba(var(--light-color), 1);
+  box-shadow: 0 10px 20px rgba(var(--dark-color), 0.1),
+    0 6px 6px rgba(var(--dark-color), 0.1),
+    0 0 0 1px rgba(var(--dark-color), 0.1);
+}
+
+.buttons .gradients__group {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-content: center;
+  margin-block: 1rem;
+}
+
+.buttons .gradients.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.buttons .gradients {
+  position: absolute;
+  top: -11rem;
+  left: 4rem;
+  width: 10rem;
+  height: 10rem;
+  overflow-y: auto;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  background-color: rgba(var(--light-color), 1);
+  color: var(--light-color);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  transition: all 0.15s ease;
+}
+
+.buttons .gradients .gradient__item {
+  justify-self: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 25%;
+  margin: 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.buttons .gradients .gradient__item:hover {
+  transform: scale(1.1);
+}
+
+.buttons .gradients .inputColor {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons .gradients input[type="color"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 25%;
+  margin: 0.25rem;
+  justify-self: center;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.buttons .gradients input[type="color"]:hover {
+  transform: scale(1.1);
 }
