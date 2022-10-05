@@ -25,18 +25,15 @@ function Canvas({ text }) {
         className="canvas__container"
         ref={printRef}
         style={{
-          background: "rgb(251, 113, 133)",
+          backgroundImage:
+            "linear-gradient(to right,rgb(251, 113, 133),rgb(217, 70, 239),rgb(99, 102, 241))",
+          // background: "rgb(251, 113, 133)",
           width: "min(100vw, 500px)",
           height: "min(100vh, 500px)",
         }}
       >
         <div
           className="canvas__container__item"
-          style={{
-            // backgroundImage:
-            //   "linear-gradient(to right,rgb(251, 113, 133),rgb(217, 70, 239),rgb(99, 102, 241))",
-            background: "rgb(251, 113, 133)",
-          }}
         >
           <div className="canvas__container__item__content">
             <h1>{text}</h1>
