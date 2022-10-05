@@ -1,9 +1,11 @@
 import "./App.css";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Header from "./components/Header/Header";
 import Canvas from "./components/Canvas/Canvas";
 
 function App() {
+  const [text, setText] = useState("Text2Jpeg");
+  const isFirstRun = useRef(true);
   useEffect(() => {
     console.clear();
     console.log(
@@ -19,7 +21,17 @@ function App() {
       "font-family: sans-serif; font-weight: 700; color: #1f6feb; padding-block: 2rem; font-size: 2.5rem; text-align: center; text-transform: uppercase; width: 100%;"
     );
   }, []);
-  const [text, setText] = useState("Text2Jpeg");
+  useEffect(() => {
+    if (isFirstRun.current) {
+      localStorage.getItem("text") && setText(localStorage.getItem("text"));
+      localStorage.getItem("mode") === "light" &&
+        document.body.classList.add("light");
+      isFirstRun.current = false;
+      return;
+    } else {
+      localStorage.setItem("text", text);
+    }
+  }, [text]);
   return (
     <div className="container">
       <Header text={text} setText={setText} />

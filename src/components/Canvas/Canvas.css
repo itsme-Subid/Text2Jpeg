@@ -213,3 +213,19 @@
 .buttons .gradients input[type="color"]:hover {
   transform: scale(1.1);
 }
+
+.credits{
+  text-align: center;
+  font-size: 1rem;
+  margin-block: 1rem;
+  font-weight: 500;
+}
+
+.credits span{
+  color: red;
+}
+
+.credits a{
+  text-decoration: none;
+  color: rgb(var(--primary-color));
+}

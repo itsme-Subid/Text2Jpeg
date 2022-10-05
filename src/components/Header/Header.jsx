@@ -5,6 +5,7 @@ function Header({ text, setText }) {
   let changeMode = () => {
     let body = document.body;
     body.classList.toggle("light");
+    localStorage.setItem("mode", body.classList.contains("light") ? "light" : "dark");
   };
   let spanStyle =
     text !== "" ? { transform: "translateY(0)", scale: "1", opacity: "1" } : {};

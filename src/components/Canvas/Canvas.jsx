@@ -1,5 +1,5 @@
 import "./Canvas.css";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
 
 function Canvas({ text }) {
@@ -12,6 +12,7 @@ function Canvas({ text }) {
   });
   const [selectColor, setSelectColor] = useState("#FFFFFF");
   const printRef = React.useRef();
+  const isFirstRun = useRef(true);
   const handleDownloadImage = async () => {
     const element = printRef.current;
     const canvas = await html2canvas(element);
@@ -78,6 +79,16 @@ function Canvas({ text }) {
       type: "linear-gradient",
     },
   ];
+  useEffect(() => {
+    if (isFirstRun.current) {
+      localStorage.getItem("gradient") &&
+        setGradient(JSON.parse(localStorage.getItem("gradient")));
+      isFirstRun.current = false;
+      return;
+    } else {
+      localStorage.setItem("gradient", JSON.stringify(gradient));
+    }
+  }, [gradient]);
   let handleSelectColor = (e) => {
     let color = e.target.value;
     setSelectColor(color);
@@ -168,6 +179,10 @@ function Canvas({ text }) {
           <span></span>
           Download
         </button>
+      </div>
+      <div className="credits">
+        Made with <span>❤</span> by{" "}
+        <a href="github.com/itsme-subid">SUBID DAS</a>
       </div>
     </div>
   );
