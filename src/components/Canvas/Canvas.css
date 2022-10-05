@@ -17,6 +17,12 @@
   height: min(100vh, 400px);
 }
 
+.light .canvas__container{
+  box-shadow: 0 10px 20px rgba(var(--dark-color), 0.1),
+  0 6px 6px rgba(var(--dark-color), 0.1),
+  0 0 0 1px rgba(var(--dark-color), 0.1);
+}
+
 .canvas__container__item {
   width: 100%;
   height: 100%;
