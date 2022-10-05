@@ -155,24 +155,22 @@ header .text-wrapper {
   opacity: 1;
 }
 
-@media screen {
-  ::-webkit-scrollbar {
-    width: 0.25em;
-  }
+::-webkit-scrollbar {
+  width: 0.25em;
+}
 
-  ::-webkit-scrollbar-track {
-    background: transparent;
-    margin-block: 0.45em;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 0.45em;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: rgb(var(--primary-color));
-    border-radius: 0.5rem;
-  }
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary-color));
+  border-radius: 0.5rem;
+}
 
-  .light ::-webkit-scrollbar-thumb {
-    background: rgb(var(--dark-color));
-  }
+.light ::-webkit-scrollbar-thumb {
+  background: rgb(var(--dark-color));
 }
 
 .light .modeToggler .svg {
@@ -181,6 +179,10 @@ header .text-wrapper {
 }
 
 @media screen and (max-width: 950px) {
+  header {
+    margin: 0;
+    padding: 0;
+  }
   header > .wrapper {
     flex-direction: column;
   }
