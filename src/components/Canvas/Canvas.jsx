@@ -182,7 +182,7 @@ function Canvas({ text }) {
       </div>
       <div className="credits">
         Made with <span>❤</span> by{" "}
-        <a href="github.com/itsme-subid">SUBID DAS</a>
+        <a href="https://github.com/itsme-Subid" target="_blank">SUBID DAS</a>
       </div>
     </div>
   );
